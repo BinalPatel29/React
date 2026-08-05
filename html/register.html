@@ -7,36 +7,49 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <div class="register">
-        <h1>Register Here!</h1>
+    <div class="page-wrapper">
 
-        <div id="errorMessage"></div>
-        <div id="successMessage"></div>
+        <div class="register">
+            <h1>Register Here!</h1>
+
+            <div id="errorMessage"></div>
+            <div id="successMessage"></div>
         
-        <form id = "registerForm">
-           <div id="input-field">
+            <form id = "registerForm">
+   
                 <div class="name-row">
                     <div class="form-group">
-                        <label for="fname">FirstName:</label><br>
+                        <label for="fname">FirstName:</label>
                         <input type="text" id="fname" placeholder="Enter your first name" required>
                     </div>
+
                     <div class="form-group">
-                        <label for="lname">LastName:</label><br>
+                        <label for="lname">LastName:</label>
                         <input type="text" id="lname" placeholder="Enter your last name" required>
                     </div>
-                </div>
-                <br>
-                <label for="email">Email:</label><br>
-                <input type="email" id="email" placeholder="Enter your email" required><br><br>
-                <label for="password" >Password:</label><br>
-                <input type="password" id="password" name="password" minlength="6" placeholder="Enter your password" required><br><br>
-                <label for="mobno">Mobile No:</label><br>
-                <input type="tel" id="mobno" maxlength="10" pattern="[0-9]{10}" placeholder="Enter your phone number"><br><br>
-                <input type="submit" value="Register">
-            </div>
-        </form>
 
-        <p>Already have an account? <a href="/frontend/index.html">Login here</a></p>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password" >Password:</label>
+                        <input type="password" id="password" name="password" minlength="6" placeholder="Enter your password" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mobno">Mobile No:</label>
+                        <input type="tel" id="mobno" maxlength="10" pattern="[0-9]{10}" placeholder="Enter your phone number">
+                    </div>
+                    
+                </div>
+                <input type="submit" value="Register">
+   
+            </form>
+    
+            <p>Already have an account? <a href="/frontend/index.html">Login here</a></p>
+        </div>
     </div>
 
     <script type="module" src="../js/auth.js"></script>
