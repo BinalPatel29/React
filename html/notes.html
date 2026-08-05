@@ -7,30 +7,35 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-<div class="notes-wrapper">
-    <h1>📒 NOTES</h1>
+    <div class="notes-wrapper">
+        <h1>📒 NOTES</h1>
 
-    <div id="notification-toast" class="toast-alert" style="display: none;">
-        <span class="toast-icon">🔔</span>
-        <p id="notification-message">Someone added a new item or commented!</p>
-    </div>
-    
-    <div class="logout">
-        <button id="logoutBtn">LOG OUT</button>
-    </div>
-    
-    <div class="notes-card">
-        <div class="input-row">
-            <input type="text" id="noteInput" placeholder="Write your note..." required>
-            <input type="file" id="fileInput" name="image" accept="image/*" />
-            <button class="add-btn" id="addnoteBtn">+ Add Notes</button>
+        <div id="notification-toast" class="toast-alert" style="display: none;">
+            <span class="toast-icon">🔔</span>
+            <p id="notification-message">Someone added a new item or commented!</p>
         </div>
+    
+        <div class="logout">
+            <button id="logoutBtn">LOG OUT</button>
+        </div>
+    
+        <div class="note container">
+            <div class="notes-card">
+                <div class="input-row">
+                    <input type="text" id="noteInput" placeholder="Write your note..." required>
+                    <label class="file-label" id="fileInputLabel">Upload
+                        <input type="file" id="fileInput" name="image" accept="image/*" hidden/>
+                    </label>
+                    <button class="add-btn" id="addnoteBtn">+ Add Notes</button>
+                </div>
         
-        <p class="error-message" id="errorMessage"></p>
-        <p class="empty-state" id="emptyState">--- No notes added yet ---</p>
-        <div class="notes-list" id="noteList"></div>
+                <p class="error-message" id="errorMessage"></p>
+                <p class="empty-state" id="emptyState">--- No notes added yet ---</p>
+                
+                <div class="notes-list" id="noteList"></div>
+            </div>
+        </div>
     </div>
-</div>
 
     <script src="http://localhost:3000/socket.io/socket.io.js"></script>
     <script type="module" src="../js/notes.js"></script>
