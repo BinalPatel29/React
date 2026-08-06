@@ -1,0 +1,45 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Login Page</title> 
+    <link rel="stylesheet" href="auth.css"> 
+    <link rel="stylesheet" href="../styles/global.css"> 
+    <link rel="stylesheet" href="../styles/reset.css"> 
+    <link rel="stylesheet" href="../styles/variables.css"> 
+</head> 
+<body> 
+    <div class="page-wrapper"> 
+
+        <div class="notes-card"> 
+
+            <div class="login"> 
+                <h1>Login Here!</h1>
+
+                <div id="errorMessage"></div> 
+
+                <div id="successMessage"></div> 
+
+                <form id="loginForm"> 
+
+                    <div class="form-group"> 
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                    </div> 
+
+                    <div class="form-group"> 
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" minlength="6" placeholder="Enter your password" required>
+                    </div> 
+                    
+                    <input type="submit" class="add-btn" value="LOG IN"> 
+                </form> 
+
+                <p>Don't have an account? <a href="/html/register.html">Signup here</a></p> 
+            </div> 
+        </div> 
+    </div> 
+    <script type="module" src="/js/auth.js"></script> 
+</body> 
+</html>

@@ -1,0 +1,27 @@
+:root {
+  --bg-main: #f4f7f6;
+
+  --brand-primary: rgb(11, 77, 99);
+  --brand-hover: rgb(9, 60, 77);
+
+  --text-light: rgb(240, 255, 247);
+  --text-dark: rgb(11, 77, 99);
+
+  --color-danger: #dc3545;
+  --color-danger-hover: #bd2130;
+
+  --color-success: rgb(81, 207, 102);
+
+  --color-accent: rgb(255, 135, 135);
+
+  --color-btn-accent: #ccf1f5;
+  --color-btn-accent-hover: #aee9f1;
+
+  --font-base: Arial, sans-serif;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+
+  --shadow-card:
+  0 4px 12px rgba(0,0,0,0.15);
+}

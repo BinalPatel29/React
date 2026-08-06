@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Page</title>
+    <link rel="stylesheet" href="chat.css">
+    <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/variables.css">
+</head>
+<body>
+    <div class="chat-container">
+
+        <aside class="sidebar">
+
+            <!-- ROOMS SECTION -->
+            <div class="rooms-section">
+                <h2>Chat Rooms</h2>
+                <ul id="roomList" class="room-list">
+                </ul>
+            </div>
+
+            <!-- ACTIVE USERS SECTION -->
+            <div class="users-section">
+                <h2>Active Users</h2>
+                <ul id="userList" class="user-list">
+                </ul>
+            </div>
+        </aside>
+
+        <main class="chat-main">
+            <header>
+                <h2 id="roomTitle"></h2>
+
+                <!-- LOGOUT FOOTER -->
+                <div class="sidebar-footer">
+                    <button id="logoutBtn" class="btn-logout">
+                        Log Out
+                    </button>
+                </div>
+            </header>
+
+            <section class="chat-body">
+
+                <div class="message-header">
+                    <h3 id="currentChatTitle"></h3>
+                    <span id="chatTypeBadge" class="badge"></span>
+                </div>
+
+                <section id="messageArea" class="message-area">
+                    <div id="historyLoader" class="history-loader" style="display: none;">
+                       <span>Loading past messages...</span>
+                    </div>
+                </section>
+
+                <!-- TYPING INDICATOR -->
+                <div id="typingIndicator" class="typing-indicator" style="display: none;">
+                   <span id="typingText">User is typing...</span>
+                </div>
+
+            </section>
+
+            <footer>
+                <form id="chatForm" class="chat-input-bar">
+                    <input type="text" id="msgInput" placeholder="Type message..." required autocomplete="off">
+                    <button type="submit" id="sendBtn">Send</button>
+                </form>
+            </footer>
+        </main>
+    </div>
+    
+</body>
+</html>
