@@ -5,62 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat Page</title>
     <link rel="stylesheet" href="chat.css">
-    <link rel="stylesheet" href="../styles/global.css">
-    <link rel="stylesheet" href="../styles/reset.css">
-    <link rel="stylesheet" href="../styles/variables.css">
+    <link rel="stylesheet" href="../styles/global.css"> 
+    <link rel="stylesheet" href="../styles/reset.css"> 
+    <link rel="stylesheet" href="../styles/variables.css"> 
 </head>
 <body>
     <div class="chat-container">
-
+        
+        <!-- FLEXBOX SIDEBAR PANEL -->
         <aside class="sidebar">
-
-            <!-- ROOMS SECTION -->
             <div class="rooms-section">
                 <h2>Chat Rooms</h2>
                 <ul id="roomList" class="room-list">
+                    <li class="active">General</li>
+                    <li class="active">Developer</li>
+                    <li class="active">Random</li>
                 </ul>
             </div>
-
-            <!-- ACTIVE USERS SECTION -->
             <div class="users-section">
                 <h2>Active Users</h2>
                 <ul id="userList" class="user-list">
+                    <li>User-1</li>
+                    <li>User-2</li>
                 </ul>
             </div>
         </aside>
 
+        <!-- FLEXBOX MAIN PANEL INTERFACE -->
         <main class="chat-main">
             <header>
-                <h2 id="roomTitle"></h2>
-
-                <!-- LOGOUT FOOTER -->
+                <h2 id="roomTitle">General Chat</h2>
                 <div class="sidebar-footer">
-                    <button id="logoutBtn" class="btn-logout">
-                        Log Out
-                    </button>
+                    <button id="logoutBtn" class="btn-logout">Log Out</button>
                 </div>
             </header>
 
             <section class="chat-body">
 
-                <div class="message-header">
-                    <h3 id="currentChatTitle"></h3>
-                    <span id="chatTypeBadge" class="badge"></span>
-                </div>
-
+                <!-- GRID MESSAGE CONTAINER AREA -->
                 <section id="messageArea" class="message-area">
-                    <div id="historyLoader" class="history-loader" style="display: none;">
-                       <span>Loading past messages...</span>
+                    
+                    <!-- Received Message Bubble (Grid Alignment) -->
+                    <div class="message received">
+                        <div class="message-grid-wrapper">
+                            <div class="msg-avatar">A</div>
+                            <div class="msg-sender">User-1</div>
+                            <div class="msg-text">Hey!</div>
+                            <div class="msg-time">02:45 PM</div>
+                        </div>
                     </div>
+
+                    <!-- Sent Message Bubble (Grid Alignment) -->
+                    <div class="message sent">
+                        <div class="message-grid-wrapper">
+                            <div class="msg-avatar">B</div>
+                            <div class="msg-sender">You</div>
+                            <div class="msg-text">Hello!</div>
+                            <div class="msg-time">02:47 PM</div>
+                        </div>
+                    </div>
+
                 </section>
 
-                <!-- TYPING INDICATOR -->
                 <div id="typingIndicator" class="typing-indicator" style="display: none;">
-                   <span id="typingText">User is typing...</span>
+                    <span id="typingText">User is typing...</span>
                 </div>
-
             </section>
 
+            <!-- FLEXBOX COMPACT FOOTER INPUT BAR -->
             <footer>
                 <form id="chatForm" class="chat-input-bar">
                     <input type="text" id="msgInput" placeholder="Type message..." required autocomplete="off">
@@ -69,6 +81,5 @@
             </footer>
         </main>
     </div>
-    
 </body>
 </html>
