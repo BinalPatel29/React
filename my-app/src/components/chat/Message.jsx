@@ -1,5 +1,5 @@
 import Avatar from './Avatar';
-import styles from '../..pages/ChatPage.module.css';
+import styles from '../../pages/ChatPage.module.css';
 
 function Message({ message, isSentByMe, }) {
     const messageClass = isSentByMe? styles.sent : styles.recieved;
