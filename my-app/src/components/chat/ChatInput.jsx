@@ -1,23 +1,28 @@
+import { useState } from 'react';
 import styles from '../../pages/ChatPage.module.css';
 
-function ChatInput(onSendMessage){
+function ChatInput({ onSendMessage }){
+    const [inputValue, setInputValue] = useState(''); 
+
     const handleSubmit = (e) => {
-        e.prevenDefault();
+        e.preventDefault();
         if(inputValue.trim() === '') return;
         onSendMessage(inputValue);
         setInputValue('');
     }
 
     return (
-        <footer className= { styles.ChatInput }>
-            <form className= { styles.chatInputBar}>
+        <footer className={styles.chatInput}> 
+            <form className={styles.chatInputBar} onSubmit={handleSubmit}>
                 <input
-                   type= 'text'
-                   id= 'msgInput'
-                   placeholder= 'Type Message...'
-                   value= {inputValue}
+                   type='text'
+                   id='msgInput'
+                   placeholder='Type Message...'
+                   value={inputValue}
+                   onChange={(e) => setInputValue(e.target.value)} 
+                   autoComplete='off'
                 />
-                <button type= 'submit' id='sendBtn'>Send</button>
+                <button type='submit' className={styles.sendBtn}>Send</button>
             </form>
         </footer>
     );
