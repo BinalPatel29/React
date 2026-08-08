@@ -1,75 +1,74 @@
-import styles from './ChatPage.module.css'
-import { Link } from 'react-router-dom'
+import styles from './ChatPage.module.css';
+import { useNavigate } from 'react-router-dom';
+
+// Import the 3 components we made
+import MessageList from '../components/chat/MessageList';
+import ChatHeader from '../components/chat/ChatHeader';
+import ChatInput from '../components/chat/ChatInput';
+
+const DUMMY_MESSAGES = [
+    { id: 'msg-1', sender: 'Priya', text: 'Phase-2 is completed', timestamp: new Date(Date.now() - 1000 * 60 * 10) },
+    { id: 'msg-2', sender: 'Riya', text: 'Phase-3 is completed', timestamp: new Date(Date.now() - 1000 * 60 * 9) },
+    { id: 'msg-3', sender: 'Kiya', text: 'Phase-4 is completed', timestamp: new Date(Date.now() - 1000 * 60 * 7) },
+    { id: 'msg-4', sender: 'Jiya', text: 'Phase-5 is completed', timestamp: new Date(Date.now() - 1000 * 60 * 5) },
+    { id: 'msg-5', sender: 'Diya', text: 'Phase-6 is completed', timestamp: new Date(Date.now() - 1000 * 60 * 3) },
+    { id: 'msg-6', sender: 'Hiya', text: 'Phase-7 is completed', timestamp: new Date(Date.now() - 1000 * 60 * 1) },
+];
 
 export default function ChatPage() {
+    const navigate = useNavigate();
+    const currentUser = 'Priya'; // Pretend Priya is logged in
+    const activeRoom = 'General';
+
+    const handleSendMessage = (text) => {
+        console.log("Sending:", text); // Later: add to state here
+    };
+
+    const handleLogout = () => {
+        navigate('/login');
+    };
+
     return (
-        <div className= { styles.chatContainer }>
+        <div className={styles.chatContainer}>
 
-            <aside className= { styles.sidebar }>
-
-                <div className= { styles.roomsSection }>
+            <aside className={styles.sidebar}>
+                <div className={styles.roomsSection}>
                     <h2>Chat Rooms</h2>
-                    <ul className= { styles.roomList }>
-                        <li className= { styles.active }>General</li>
+                    <ul className={styles.roomList}>
+                        <li className={styles.active}>General</li>
                         <li>Developer</li>
                         <li>Random</li>
                     </ul>
                 </div>
 
-                <div className= { styles.usersSection }>
+                <div className={styles.usersSection}>
                     <h2>Active Users</h2>
-                    <ul className= { styles.userList}>
-                        <li>User-1</li>
-                        <li>User-2</li>
+                    <ul className={styles.userList}>
+                        <li>Priya</li>
+                        <li>Riya</li>
+                        <li>Kiya</li>
+                        <li>Jiya</li>
+                        <li>Diya</li>
+                        <li>Hiya</li>
                     </ul>
                 </div>
-                
             </aside>
 
-            <main className= { styles.chatMain }>
+            <main className={styles.chatMain}>
+                {/* HEADER COMPONENT */}
+                <ChatHeader roomName={activeRoom} onLogout={handleLogout} />
 
-                <header>
+                <section className={styles.chatBody}>
+                    {/* MESSAGE LIST COMPONENT - .map() happens inside */}
+                    <MessageList messages={DUMMY_MESSAGES} currentUser={currentUser} />
 
-                    <h2>General Chat</h2>
-                    <div className= { styles.sidebarFooter }>
-                        <button className='btnLogout'>LOG OUT</button>
-                    </div>
-                    
-                </header>
-
-                <section className= { styles.chatBody }>
-
-                    <section className= { styles.messageArea }>
-                        <div className={` ${ styles.message } ${ styles.messageRecieved } `}>
-                            <div className= { styles.messageGridWrapper }>
-                                <div className= { styles.msgAvatar }>A</div>
-                                <div className= { styles.msgSender }>User-1</div>
-                                <div className= { styles.msgText }>Hey!</div>
-                                <div className= { styles.msgTime }>02:45 PM</div>
-                            </div>
-                        </div>
-
-                        <div className={` ${ styles.message } ${ styles.messageSent} `}>
-                            <div className= { styles.messageGridWrapper }>
-                                <div className= { styles.msgAvatar }>B</div>
-                                <div className= { styles.msgSender }>User-2</div>
-                                <div className= { styles.msgText }>Hi!</div>
-                                <div className= { styles.msgTime }>02:45 PM</div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <div className= { styles.typingIndicator } style={{ display: 'none' }}>
+                    <div className={styles.typingIndicator} style={{ display: 'none' }}>
                         <span>User is typing...</span>
                     </div>
                 </section>
 
-                <footer>
-                    <form className='chatInputBar'>
-                        <input type="text" id="msgInput" placeholder="Type message..." required autoComplete="off" />
-                        <button type="submit" id="sendBtn">Send</button>
-                    </form>
-                </footer>
+                {/* INPUT COMPONENT */}
+                <ChatInput onSendMessage={handleSendMessage} />
 
             </main>
         </div>
