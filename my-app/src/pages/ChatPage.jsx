@@ -1,3 +1,4 @@
+import { useState } from 'react'; 
 import styles from './ChatPage.module.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -19,8 +20,16 @@ export default function ChatPage() {
     const currentUser = 'Priya'; 
     const activeRoom = 'General';
 
+    const [messages, setMessages] = useState(DUMMY_MESSAGES);
+
     const handleSendMessage = (text) => {
-        console.log("Sending:", text); 
+        const newMessage = {
+            id: `msg-${Date.now()}`,
+            sender: currentUser,
+            text: text,
+            timestamp: new Date()
+        };
+        setMessages(prevMessages => [...prevMessages, newMessage]);
     };
 
     const handleLogout = () => {
@@ -29,7 +38,6 @@ export default function ChatPage() {
 
     return (
         <div className={styles.chatContainer}>
-
             <aside className={styles.sidebar}>
                 <div className={styles.roomsSection}>
                     <h2>Chat Rooms</h2>
@@ -57,7 +65,7 @@ export default function ChatPage() {
                 <ChatHeader roomName={activeRoom} onLogout={handleLogout} />
 
                 <section className={styles.chatBody}>
-                    <MessageList messages={DUMMY_MESSAGES} currentUser={currentUser} />
+                    <MessageList messages={messages} currentUser={currentUser} /> 
 
                     <div className={styles.typingIndicator} style={{ display: 'none' }}>
                         <span>User is typing...</span>
