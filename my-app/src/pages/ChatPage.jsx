@@ -1,7 +1,6 @@
 import styles from './ChatPage.module.css';
 import { useNavigate } from 'react-router-dom';
 
-// Import the 3 components we made
 import MessageList from '../components/chat/MessageList';
 import ChatHeader from '../components/chat/ChatHeader';
 import ChatInput from '../components/chat/ChatInput';
@@ -17,11 +16,11 @@ const DUMMY_MESSAGES = [
 
 export default function ChatPage() {
     const navigate = useNavigate();
-    const currentUser = 'Priya'; // Pretend Priya is logged in
+    const currentUser = 'Priya'; 
     const activeRoom = 'General';
 
     const handleSendMessage = (text) => {
-        console.log("Sending:", text); // Later: add to state here
+        console.log("Sending:", text); 
     };
 
     const handleLogout = () => {
@@ -55,11 +54,9 @@ export default function ChatPage() {
             </aside>
 
             <main className={styles.chatMain}>
-                {/* HEADER COMPONENT */}
                 <ChatHeader roomName={activeRoom} onLogout={handleLogout} />
 
                 <section className={styles.chatBody}>
-                    {/* MESSAGE LIST COMPONENT - .map() happens inside */}
                     <MessageList messages={DUMMY_MESSAGES} currentUser={currentUser} />
 
                     <div className={styles.typingIndicator} style={{ display: 'none' }}>
@@ -67,7 +64,6 @@ export default function ChatPage() {
                     </div>
                 </section>
 
-                {/* INPUT COMPONENT */}
                 <ChatInput onSendMessage={handleSendMessage} />
 
             </main>
